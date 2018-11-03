@@ -1,0 +1,58 @@
+
+ TERA - Traveloka "real-time" on the spot instant booking issues
+
+ PRIORITY: HIGH
+
+ LABEL: Time Zone Bugs
+
+ DANGER : Missing or Data Lost in Transit
+
+
+ Let's say user have entered Jan 22nd to feb 12th on the UI, then,
+
+ then the query will be fired between these date inclusive of 
+
+ both dates starting from 00:00 hours to ending 23:00 Hours
+
+ with given a result set in UTC.
+
+
+
+
+ If using a range of local timestamps, provided by a user, 
+
+ to query a table containing UTC timestamps, ignoring the different timezones. 
+
+ Need to convert local timestamps to UTC first and
+
+ use the converted value to query the database.
+
+ If you don't things go wrong.
+
+
+
+
+ E.g. say the table contains a record with 
+
+ the timestamp Jan 22nd 23:00 (UTC). 
+
+ When you query the table using the
+
+ local timestamp Jan 23nd 00:00 (UTC+1),
+
+ you are not going to get that record out
+
+ even though they're exactly the same.
+
+
+ Sample case, the Asia/Kolkata timezone is
+
+ equal to UTC+5:30. So if the database is 
+
+ queried for the UTC timestamp 
+
+ Jan 1st 00:00 and afterwards the result is
+
+ converted to a local datetime,
+
+ the result Jan 1st 00:00 becomes Jan 1st 05:30.
