@@ -1,0 +1,13 @@
+# The string.isdigit() can be used to
+# test if it is numeric. Looping through the split list
+# (from back) will result in the first number.
+
+Highway_61 = ['US Hwy 1', 'State Hwy 33 W','State Hwy 29 Bus', 'some 1 other string text with a number','yet another test with a 6 number']  
+for r in Highway_61:  
+    lstr = r.split(' ')  
+    for i in range(len(lstr)-1,-1,-1):  
+        if lstr[i].isdigit():  
+            print " - part {0} - in string '{1}' is '{2}' and this is numeric {3}".format(i,r,lstr[i],float(lstr[i]))  
+            break  
+            
+# To justify and test for issues!!
