@@ -11,3 +11,10 @@ for r in Highway_61:
             break  
             
 # To justify and test for issues!!
+# But this breaks down if the string looks like:
+
+# >>> text = 'Value  = -12.214'  
+# >>> num = get_num_from_string(string)  
+# >>> num  
+# 12214  
+
